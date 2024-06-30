@@ -1,0 +1,2379 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/24/2023 5:19:37 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="INT-TQHAI-LAPTO"
+  DTS:CreatorName="INT-TQHAI-LAPTO\admin"
+  DTS:DTSID="{AB9BCFB1-3E03-417B-8DCF-5255D6BC18DC}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5035.3"
+  DTS:LocaleID="2057"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="26"
+  DTS:VersionGUID="{A00A55D5-4712-48D1-8D8C-92A68CFD4EB3}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{36CC886D-7695-477A-A600-756071AF8F2E}"
+      DTS:ObjectName="Excel Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\TH_DWvDM\SL_PHANTICH_OLAP.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[INT-TQHAI-LAPTO.BT_lan2.sa]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{612FA43A-97FE-4BBD-A548-B167143B489B}"
+      DTS:ObjectName="INT-TQHAI-LAPTO.BT_lan2.sa">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=INT-TQHAI-LAPTO;User ID=sa;Initial Catalog=BT_lan2;Provider=SQLNCLI11.1;Persist Security Info=True;Application Name=SSIS-Package-{612FA43A-97FE-4BBD-A548-B167143B489B}INT-TQHAI-LAPTO.BT_lan2.sa;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAMfdOoN2ZzEampDIxsx9aFwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADA4aW/ItB49U2Ye9UQTAuJV4Nw4H4pOzSKe4PS4N23nAAAAAAOgAAAAAIAACAAAACw2ob5UbcVDCHdME4fvjidV77PgsHwR/UnxV6pH7ooVxAAAABCgPfmSXw4QLnfqOWpcLvAQAAAAFNsMoz/a7Hbhit3Fk38Sk+U1/zI06RMJ5PKWHVRkJO5/dQIm71LQJfYxxgTP6/aBoXE/ZY7ST1mXxQJZnxOsCw</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Sequence Container"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{BED46E7E-EFA5-4C79-A85B-02EE6C745EAF}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Sequence Container">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Data Flow Task"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{CE187B08-BE9D-497C-94B9-7EA1D14B96F8}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Data Flow Task"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Sequence Container\Data Flow Task\Aggregate"
+                  componentClassID="Microsoft.Aggregate"
+                  contactInfo="Aggregate;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+                  description="Aggregates data with functions such as Average, Sum, Count, Max, and Min. For example, group data to compute the sum of sales per product or the average visits per day."
+                  name="Aggregate"
+                  version="3">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                      name="KeyScale"
+                      typeConverter="KeyScaleType">0</property>
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                      name="Keys" />
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the approximate number of distinct values in a column that the aggregation counts distinctly. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no CountDistinctScale value is used."
+                      name="CountDistinctScale"
+                      typeConverter="KeyScaleType">0</property>
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the exact number of distinct values in a column that the aggregation counts distinctly. If a CountDistinctScale value is specified, the value in CountDistinctKeys takes precedence."
+                      name="CountDistinctKeys" />
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the percentage by which memory can be extended during the aggregation. Valid values are between 1 and 100."
+                      name="AutoExtendFactor">25</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Data Flow Task\Aggregate.Inputs[Aggregate Input 1]"
+                      name="Aggregate Input 1">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task\Aggregate.Inputs[Aggregate Input 1].Columns[Copy of Thgian]"
+                          cachedDataType="dbDate"
+                          cachedName="Copy of Thgian"
+                          lineageId="Package\Sequence Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Thgian]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Data Flow Task\Aggregate.Outputs[Aggregate Output 1]"
+                      name="Aggregate Output 1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                          name="KeyScale"
+                          typeConverter="KeyScaleType">0</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                          name="Keys" />
+                      </properties>
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\Aggregate.Outputs[Aggregate Output 1].Columns[Copy of Thgian]"
+                          dataType="dbDate"
+                          lineageId="Package\Sequence Container\Data Flow Task\Aggregate.Outputs[Aggregate Output 1].Columns[Copy of Thgian]"
+                          name="Copy of Thgian">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the ID of the input column used in the aggregation."
+                              name="AggregationColumnId">#{Package\Sequence Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Thgian]}</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the type of aggregation."
+                              name="AggregationType"
+                              typeConverter="AggregationType">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                              name="IsBig">1</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the string comparison options."
+                              name="AggregationComparisonFlags">0</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Data Flow Task\Data Conversion"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="Data Conversion"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[Thgian]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Thgian"
+                          lineageId="Package\Sequence Container\Data Flow Task\Unpivot.Outputs[Unpivot Output].Columns[Thgian]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\Sequence Container\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Thgian]"
+                          dataType="dbDate"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Sequence Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Thgian]"
+                          name="Copy of Thgian"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Sequence Container\Data Flow Task\Unpivot.Outputs[Unpivot Output].Columns[Thgian]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\Sequence Container\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Data Flow Task\Derived Column"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derived Column"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Data Flow Task\Derived Column.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task\Derived Column.Inputs[Derived Column Input].Columns[Copy of Thgian]"
+                          cachedDataType="dbDate"
+                          cachedName="Copy of Thgian"
+                          lineageId="Package\Sequence Container\Data Flow Task\Aggregate.Outputs[Aggregate Output 1].Columns[Copy of Thgian]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Data Flow Task\Derived Column.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\Sequence Container\Data Flow Task\Derived Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[Thang]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Sequence Container\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[Thang]"
+                          name="Thang"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[MONTH](#{Package\Sequence Container\Data Flow Task\Aggregate.Outputs[Aggregate Output 1].Columns[Copy of Thgian]})</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">MONTH([Copy of Thgian])</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[Nam]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Sequence Container\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[Nam]"
+                          name="Nam"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[YEAR](#{Package\Sequence Container\Data Flow Task\Aggregate.Outputs[Aggregate Output 1].Columns[Copy of Thgian]})</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">YEAR([Copy of Thgian])</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Data Flow Task\Derived Column.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\Sequence Container\Data Flow Task\Derived Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Data Flow Task\Excel Source"
+                  componentClassID="Microsoft.ExcelSource"
+                  contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Excel Source"
+                  name="Excel Source"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">ZALO$</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mapping from parameters in the SQL command to variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Data Flow Task\Excel Source.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                      connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Output]"
+                      name="Excel Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Đơn vị]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Đơn vị]"
+                          length="255"
+                          lineageId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Đơn vị]"
+                          name="Đơn vị"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[01-2023]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[01-2023]"
+                          lineageId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[01-2023]"
+                          name="01-2023"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[02-2023]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[02-2023]"
+                          lineageId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[02-2023]"
+                          name="02-2023"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[03-2023]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[03-2023]"
+                          lineageId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[03-2023]"
+                          name="03-2023"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[04-2023]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[04-2023]"
+                          lineageId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[04-2023]"
+                          name="04-2023"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[05-2023]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[05-2023]"
+                          lineageId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[05-2023]"
+                          name="05-2023"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[06-2023]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[06-2023]"
+                          lineageId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[06-2023]"
+                          name="06-2023"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[07-2023]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[07-2023]"
+                          lineageId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[07-2023]"
+                          name="07-2023"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[08-2023]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[08-2023]"
+                          lineageId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[08-2023]"
+                          name="08-2023"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[09-2023]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[09-2023]"
+                          lineageId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[09-2023]"
+                          name="09-2023"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Đơn vị]"
+                          dataType="wstr"
+                          length="255"
+                          name="Đơn vị" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[01-2023]"
+                          dataType="r8"
+                          name="01-2023" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[02-2023]"
+                          dataType="r8"
+                          name="02-2023" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[03-2023]"
+                          dataType="r8"
+                          name="03-2023" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[04-2023]"
+                          dataType="r8"
+                          name="04-2023" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[05-2023]"
+                          dataType="r8"
+                          name="05-2023" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[06-2023]"
+                          dataType="r8"
+                          name="06-2023" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[07-2023]"
+                          dataType="r8"
+                          name="07-2023" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[08-2023]"
+                          dataType="r8"
+                          name="08-2023" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[09-2023]"
+                          dataType="r8"
+                          name="09-2023" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output]"
+                      isErrorOut="true"
+                      name="Excel Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Đơn vị]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Đơn vị]"
+                          name="Đơn vị" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[01-2023]"
+                          dataType="r8"
+                          lineageId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[01-2023]"
+                          name="01-2023" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[02-2023]"
+                          dataType="r8"
+                          lineageId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[02-2023]"
+                          name="02-2023" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[03-2023]"
+                          dataType="r8"
+                          lineageId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[03-2023]"
+                          name="03-2023" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[04-2023]"
+                          dataType="r8"
+                          lineageId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[04-2023]"
+                          name="04-2023" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[05-2023]"
+                          dataType="r8"
+                          lineageId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[05-2023]"
+                          name="05-2023" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[06-2023]"
+                          dataType="r8"
+                          lineageId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[06-2023]"
+                          name="06-2023" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[07-2023]"
+                          dataType="r8"
+                          lineageId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[07-2023]"
+                          name="07-2023" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[08-2023]"
+                          dataType="r8"
+                          lineageId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[08-2023]"
+                          name="08-2023" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[09-2023]"
+                          dataType="r8"
+                          lineageId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[09-2023]"
+                          name="09-2023" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Data Flow Task\Lookup"
+                  componentClassID="Microsoft.Lookup"
+                  contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                  description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                  name="Lookup"
+                  usesDispositions="true"
+                  version="6">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement that generates the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Dim_ThoiGian]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommandParam"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Dim_ThoiGian]) [refTable]
+where [refTable].[Thgian] = ? and [refTable].[Thang] = ? and [refTable].[Nam] = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of connection used to access the reference dataset."
+                      name="ConnectionType"
+                      typeConverter="LookupConnectionType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the cache type of the lookup table."
+                      name="CacheType"
+                      typeConverter="CacheType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                      name="NoMatchBehavior"
+                      typeConverter="LookupNoMatchBehavior">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                      name="NoMatchCachePercentage">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                      name="MaxMemoryUsage">25</property>
+                    <property
+                      dataType="System.Int64"
+                      description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                      name="MaxMemoryUsage64">25</property>
+                    <property
+                      dataType="System.String"
+                      description="Indicates whether to reference metadata in an XML format."
+                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="Thgian" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Thang" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Nam" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                      name="ParameterMap">#{Package\Sequence Container\Data Flow Task\Sort.Outputs[Sort Output].Columns[Copy of Thgian]};#{Package\Sequence Container\Data Flow Task\Sort.Outputs[Sort Output].Columns[Thang]};#{Package\Sequence Container\Data Flow Task\Sort.Outputs[Sort Output].Columns[Nam]};</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                      name="TreatDuplicateKeysAsError">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Data Flow Task\Lookup.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[INT-TQHAI-LAPTO.BT_lan2.sa]"
+                      connectionManagerRefId="Package.ConnectionManagers[INT-TQHAI-LAPTO.BT_lan2.sa]"
+                      description="Connection manager used to access lookup data."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Data Flow Task\Lookup.Inputs[Lookup Input]"
+                      name="Lookup Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task\Lookup.Inputs[Lookup Input].Columns[Copy of Thgian]"
+                          cachedDataType="dbDate"
+                          cachedName="Copy of Thgian"
+                          cachedSortKeyPosition="1"
+                          lineageId="Package\Sequence Container\Data Flow Task\Sort.Outputs[Sort Output].Columns[Copy of Thgian]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">Thgian</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task\Lookup.Inputs[Lookup Input].Columns[Thang]"
+                          cachedDataType="i4"
+                          cachedName="Thang"
+                          lineageId="Package\Sequence Container\Data Flow Task\Sort.Outputs[Sort Output].Columns[Thang]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">Thang</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task\Lookup.Inputs[Lookup Input].Columns[Nam]"
+                          cachedDataType="i4"
+                          cachedName="Nam"
+                          lineageId="Package\Sequence Container\Data Flow Task\Sort.Outputs[Sort Output].Columns[Nam]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">Nam</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Data Flow Task\Lookup.Outputs[Lookup Match Output]"
+                      errorOrTruncationOperation="Lookup"
+                      exclusionGroup="1"
+                      name="Lookup Match Output"
+                      synchronousInputId="Package\Sequence Container\Data Flow Task\Lookup.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Data Flow Task\Lookup.Outputs[Lookup No Match Output]"
+                      description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                      exclusionGroup="1"
+                      name="Lookup No Match Output"
+                      synchronousInputId="Package\Sequence Container\Data Flow Task\Lookup.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Data Flow Task\Lookup.Outputs[Lookup Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Lookup Error Output"
+                      synchronousInputId="Package\Sequence Container\Data Flow Task\Lookup.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Data Flow Task\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Data Flow Task\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Data Flow Task\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[Dim_ThoiGian]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[INT-TQHAI-LAPTO.BT_lan2.sa]"
+                      connectionManagerRefId="Package.ConnectionManagers[INT-TQHAI-LAPTO.BT_lan2.sa]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Thang]"
+                          cachedDataType="i4"
+                          cachedName="Thang"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Thang]"
+                          lineageId="Package\Sequence Container\Data Flow Task\Sort.Outputs[Sort Output].Columns[Thang]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Nam]"
+                          cachedDataType="i4"
+                          cachedName="Nam"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Nam]"
+                          lineageId="Package\Sequence Container\Data Flow Task\Sort.Outputs[Sort Output].Columns[Nam]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of Thgian]"
+                          cachedDataType="dbDate"
+                          cachedName="Copy of Thgian"
+                          cachedSortKeyPosition="1"
+                          externalMetadataColumnId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Thgian]"
+                          lineageId="Package\Sequence Container\Data Flow Task\Sort.Outputs[Sort Output].Columns[Copy of Thgian]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Thgian]"
+                          dataType="dbDate"
+                          name="Thgian" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Thang]"
+                          dataType="i4"
+                          name="Thang" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Nam]"
+                          dataType="i4"
+                          name="Nam" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Data Flow Task\Sort"
+                  componentClassID="Microsoft.Sort"
+                  contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+                  name="Sort"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                      name="EliminateDuplicates">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the maximum number of threads to use for sorting."
+                      expressionType="Notify"
+                      name="MaximumThreads">-1</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Data Flow Task\Sort.Inputs[Sort Input]"
+                      name="Sort Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task\Sort.Inputs[Sort Input].Columns[Copy of Thgian]"
+                          cachedDataType="dbDate"
+                          cachedName="Copy of Thgian"
+                          lineageId="Package\Sequence Container\Data Flow Task\Aggregate.Outputs[Aggregate Output 1].Columns[Copy of Thgian]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">1</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task\Sort.Inputs[Sort Input].Columns[Thang]"
+                          cachedDataType="i4"
+                          cachedName="Thang"
+                          lineageId="Package\Sequence Container\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[Thang]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task\Sort.Inputs[Sort Input].Columns[Nam]"
+                          cachedDataType="i4"
+                          cachedName="Nam"
+                          lineageId="Package\Sequence Container\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[Nam]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Data Flow Task\Sort.Outputs[Sort Output]"
+                      isSorted="true"
+                      name="Sort Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\Sort.Outputs[Sort Output].Columns[Copy of Thgian]"
+                          dataType="dbDate"
+                          lineageId="Package\Sequence Container\Data Flow Task\Sort.Outputs[Sort Output].Columns[Copy of Thgian]"
+                          name="Copy of Thgian"
+                          sortKeyPosition="1">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\Sequence Container\Data Flow Task\Aggregate.Outputs[Aggregate Output 1].Columns[Copy of Thgian]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\Sort.Outputs[Sort Output].Columns[Thang]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Data Flow Task\Sort.Outputs[Sort Output].Columns[Thang]"
+                          name="Thang">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\Sequence Container\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[Thang]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\Sort.Outputs[Sort Output].Columns[Nam]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Data Flow Task\Sort.Outputs[Sort Output].Columns[Nam]"
+                          name="Nam">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\Sequence Container\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[Nam]}</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Data Flow Task\Unpivot"
+                  componentClassID="Microsoft.UnPivot"
+                  contactInfo="Unpivot;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Expands an un-normalized data flow into a more normalized version. Values from multiple columns of a single record expand to multiple records in a single column. For example, expand a table that lists athletic scores with a column for each game to more records and a single score column."
+                  name="Unpivot">
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Data Flow Task\Unpivot.Inputs[Unpivot Input]"
+                      hasSideEffects="true"
+                      name="Unpivot Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task\Unpivot.Inputs[Unpivot Input].Columns[01-2023]"
+                          cachedDataType="r8"
+                          cachedName="01-2023"
+                          lineageId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[01-2023]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="The lineage ID of the output column that will receive the value from this input column. Or -1 if column's value is not used in output rows."
+                              name="DestinationColumn">#{Package\Sequence Container\Data Flow Task\-1:invalid}</property>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the value written to the PivotKey column in the output row."
+                              expressionType="Notify"
+                              name="PivotKeyValue">01-2023</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task\Unpivot.Inputs[Unpivot Input].Columns[02-2023]"
+                          cachedDataType="r8"
+                          cachedName="02-2023"
+                          lineageId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[02-2023]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="The lineage ID of the output column that will receive the value from this input column. Or -1 if column's value is not used in output rows."
+                              name="DestinationColumn">#{Package\Sequence Container\Data Flow Task\-1:invalid}</property>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the value written to the PivotKey column in the output row."
+                              expressionType="Notify"
+                              name="PivotKeyValue">02-2023</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task\Unpivot.Inputs[Unpivot Input].Columns[03-2023]"
+                          cachedDataType="r8"
+                          cachedName="03-2023"
+                          lineageId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[03-2023]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="The lineage ID of the output column that will receive the value from this input column. Or -1 if column's value is not used in output rows."
+                              name="DestinationColumn">#{Package\Sequence Container\Data Flow Task\-1:invalid}</property>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the value written to the PivotKey column in the output row."
+                              expressionType="Notify"
+                              name="PivotKeyValue">03-2023</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task\Unpivot.Inputs[Unpivot Input].Columns[04-2023]"
+                          cachedDataType="r8"
+                          cachedName="04-2023"
+                          lineageId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[04-2023]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="The lineage ID of the output column that will receive the value from this input column. Or -1 if column's value is not used in output rows."
+                              name="DestinationColumn">#{Package\Sequence Container\Data Flow Task\-1:invalid}</property>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the value written to the PivotKey column in the output row."
+                              expressionType="Notify"
+                              name="PivotKeyValue">04-2023</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task\Unpivot.Inputs[Unpivot Input].Columns[05-2023]"
+                          cachedDataType="r8"
+                          cachedName="05-2023"
+                          lineageId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[05-2023]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="The lineage ID of the output column that will receive the value from this input column. Or -1 if column's value is not used in output rows."
+                              name="DestinationColumn">#{Package\Sequence Container\Data Flow Task\-1:invalid}</property>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the value written to the PivotKey column in the output row."
+                              expressionType="Notify"
+                              name="PivotKeyValue">05-2023</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task\Unpivot.Inputs[Unpivot Input].Columns[06-2023]"
+                          cachedDataType="r8"
+                          cachedName="06-2023"
+                          lineageId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[06-2023]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="The lineage ID of the output column that will receive the value from this input column. Or -1 if column's value is not used in output rows."
+                              name="DestinationColumn">#{Package\Sequence Container\Data Flow Task\-1:invalid}</property>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the value written to the PivotKey column in the output row."
+                              expressionType="Notify"
+                              name="PivotKeyValue">06-2023</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task\Unpivot.Inputs[Unpivot Input].Columns[07-2023]"
+                          cachedDataType="r8"
+                          cachedName="07-2023"
+                          lineageId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[07-2023]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="The lineage ID of the output column that will receive the value from this input column. Or -1 if column's value is not used in output rows."
+                              name="DestinationColumn">#{Package\Sequence Container\Data Flow Task\-1:invalid}</property>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the value written to the PivotKey column in the output row."
+                              expressionType="Notify"
+                              name="PivotKeyValue">07-2023</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task\Unpivot.Inputs[Unpivot Input].Columns[08-2023]"
+                          cachedDataType="r8"
+                          cachedName="08-2023"
+                          lineageId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[08-2023]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="The lineage ID of the output column that will receive the value from this input column. Or -1 if column's value is not used in output rows."
+                              name="DestinationColumn">#{Package\Sequence Container\Data Flow Task\-1:invalid}</property>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the value written to the PivotKey column in the output row."
+                              expressionType="Notify"
+                              name="PivotKeyValue">08-2023</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task\Unpivot.Inputs[Unpivot Input].Columns[09-2023]"
+                          cachedDataType="r8"
+                          cachedName="09-2023"
+                          lineageId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[09-2023]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="The lineage ID of the output column that will receive the value from this input column. Or -1 if column's value is not used in output rows."
+                              name="DestinationColumn">#{Package\Sequence Container\Data Flow Task\-1:invalid}</property>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the value written to the PivotKey column in the output row."
+                              expressionType="Notify"
+                              name="PivotKeyValue">09-2023</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Data Flow Task\Unpivot.Inputs[Unpivot Input].Columns[Đơn vị]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Đơn vị"
+                          lineageId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Đơn vị]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="The lineage ID of the output column that will receive the value from this input column. Or -1 if column's value is not used in output rows."
+                              name="DestinationColumn">#{Package\Sequence Container\Data Flow Task\Unpivot.Outputs[Unpivot Output].Columns[Đơn vị]}</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the value written to the PivotKey column in the output row."
+                              expressionType="Notify"
+                              name="PivotKeyValue" />
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Data Flow Task\Unpivot.Outputs[Unpivot Output]"
+                      name="Unpivot Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\Unpivot.Outputs[Unpivot Output].Columns[Thgian]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Sequence Container\Data Flow Task\Unpivot.Outputs[Unpivot Output].Columns[Thgian]"
+                          name="Thgian">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the value in the PivotKeyValue property is written to the column in the new row."
+                              name="PivotKey">true</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Data Flow Task\Unpivot.Outputs[Unpivot Output].Columns[Đơn vị]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Sequence Container\Data Flow Task\Unpivot.Outputs[Unpivot Output].Columns[Đơn vị]"
+                          name="Đơn vị">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the value in the PivotKeyValue property is written to the column in the new row."
+                              name="PivotKey">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Sequence Container\Data Flow Task.Paths[Aggregate Output 1]"
+                  endId="Package\Sequence Container\Data Flow Task\Derived Column.Inputs[Derived Column Input]"
+                  name="Aggregate Output 1"
+                  startId="Package\Sequence Container\Data Flow Task\Aggregate.Outputs[Aggregate Output 1]" />
+                <path
+                  refId="Package\Sequence Container\Data Flow Task.Paths[Data Conversion Output]"
+                  endId="Package\Sequence Container\Data Flow Task\Aggregate.Inputs[Aggregate Input 1]"
+                  name="Data Conversion Output"
+                  startId="Package\Sequence Container\Data Flow Task\Data Conversion.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\Sequence Container\Data Flow Task.Paths[Derived Column Output]"
+                  endId="Package\Sequence Container\Data Flow Task\Sort.Inputs[Sort Input]"
+                  name="Derived Column Output"
+                  startId="Package\Sequence Container\Data Flow Task\Derived Column.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\Sequence Container\Data Flow Task.Paths[Excel Source Output]"
+                  endId="Package\Sequence Container\Data Flow Task\Unpivot.Inputs[Unpivot Input]"
+                  name="Excel Source Output"
+                  startId="Package\Sequence Container\Data Flow Task\Excel Source.Outputs[Excel Source Output]" />
+                <path
+                  refId="Package\Sequence Container\Data Flow Task.Paths[Lookup No Match Output]"
+                  endId="Package\Sequence Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="Lookup No Match Output"
+                  startId="Package\Sequence Container\Data Flow Task\Lookup.Outputs[Lookup No Match Output]" />
+                <path
+                  refId="Package\Sequence Container\Data Flow Task.Paths[Sort Output]"
+                  endId="Package\Sequence Container\Data Flow Task\Lookup.Inputs[Lookup Input]"
+                  name="Sort Output"
+                  startId="Package\Sequence Container\Data Flow Task\Sort.Outputs[Sort Output]" />
+                <path
+                  refId="Package\Sequence Container\Data Flow Task.Paths[Unpivot Output]"
+                  endId="Package\Sequence Container\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Unpivot Output"
+                  startId="Package\Sequence Container\Data Flow Task\Unpivot.Outputs[Unpivot Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Dim_DonVi"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{8E4ABEE3-0F9A-40BD-BA89-5A33CA3DEC96}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Dim_DonVi"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Sequence Container\Dim_DonVi\Aggregate"
+                  componentClassID="Microsoft.Aggregate"
+                  contactInfo="Aggregate;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+                  description="Aggregates data with functions such as Average, Sum, Count, Max, and Min. For example, group data to compute the sum of sales per product or the average visits per day."
+                  name="Aggregate"
+                  version="3">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                      name="KeyScale"
+                      typeConverter="KeyScaleType">0</property>
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                      name="Keys" />
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the approximate number of distinct values in a column that the aggregation counts distinctly. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no CountDistinctScale value is used."
+                      name="CountDistinctScale"
+                      typeConverter="KeyScaleType">0</property>
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the exact number of distinct values in a column that the aggregation counts distinctly. If a CountDistinctScale value is specified, the value in CountDistinctKeys takes precedence."
+                      name="CountDistinctKeys" />
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the percentage by which memory can be extended during the aggregation. Valid values are between 1 and 100."
+                      name="AutoExtendFactor">25</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Dim_DonVi\Aggregate.Inputs[Aggregate Input 1]"
+                      name="Aggregate Input 1">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Dim_DonVi\Aggregate.Inputs[Aggregate Input 1].Columns[Đơn vị]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Đơn vị"
+                          lineageId="Package\Sequence Container\Dim_DonVi\Excel Source.Outputs[Excel Source Output].Columns[Đơn vị]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Dim_DonVi\Aggregate.Outputs[Aggregate Output 1]"
+                      name="Aggregate Output 1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                          name="KeyScale"
+                          typeConverter="KeyScaleType">0</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                          name="Keys" />
+                      </properties>
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Dim_DonVi\Aggregate.Outputs[Aggregate Output 1].Columns[DonVi]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Sequence Container\Dim_DonVi\Aggregate.Outputs[Aggregate Output 1].Columns[DonVi]"
+                          name="DonVi">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the ID of the input column used in the aggregation."
+                              name="AggregationColumnId">#{Package\Sequence Container\Dim_DonVi\Excel Source.Outputs[Excel Source Output].Columns[Đơn vị]}</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the type of aggregation."
+                              name="AggregationType"
+                              typeConverter="AggregationType">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                              name="IsBig">1</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the string comparison options."
+                              name="AggregationComparisonFlags">0</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Dim_DonVi\Data Conversion"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="Data Conversion"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Dim_DonVi\Data Conversion.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Dim_DonVi\Data Conversion.Inputs[Data Conversion Input].Columns[DonVi]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="DonVi"
+                          lineageId="Package\Sequence Container\Dim_DonVi\Aggregate.Outputs[Aggregate Output 1].Columns[DonVi]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Dim_DonVi\Data Conversion.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\Sequence Container\Dim_DonVi\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Dim_DonVi\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of DonVi]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="10"
+                          lineageId="Package\Sequence Container\Dim_DonVi\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of DonVi]"
+                          name="Copy of DonVi"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Sequence Container\Dim_DonVi\Aggregate.Outputs[Aggregate Output 1].Columns[DonVi]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Dim_DonVi\Data Conversion.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\Sequence Container\Dim_DonVi\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Dim_DonVi\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Dim_DonVi\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Dim_DonVi\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Dim_DonVi\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Dim_DonVi\Excel Source"
+                  componentClassID="Microsoft.ExcelSource"
+                  contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Excel Source"
+                  name="Excel Source"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">EMAIL$</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mapping from parameters in the SQL command to variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Dim_DonVi\Excel Source.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                      connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Dim_DonVi\Excel Source.Outputs[Excel Source Output]"
+                      name="Excel Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Dim_DonVi\Excel Source.Outputs[Excel Source Output].Columns[Đơn vị]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Dim_DonVi\Excel Source.Outputs[Excel Source Output].ExternalColumns[Đơn vị]"
+                          length="255"
+                          lineageId="Package\Sequence Container\Dim_DonVi\Excel Source.Outputs[Excel Source Output].Columns[Đơn vị]"
+                          name="Đơn vị"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Dim_DonVi\Excel Source.Outputs[Excel Source Output].ExternalColumns[Đơn vị]"
+                          dataType="wstr"
+                          length="255"
+                          name="Đơn vị" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Dim_DonVi\Excel Source.Outputs[Excel Source Output].ExternalColumns[01-2023]"
+                          dataType="r8"
+                          name="01-2023" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Dim_DonVi\Excel Source.Outputs[Excel Source Output].ExternalColumns[02-2023]"
+                          dataType="r8"
+                          name="02-2023" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Dim_DonVi\Excel Source.Outputs[Excel Source Output].ExternalColumns[03-2023]"
+                          dataType="r8"
+                          name="03-2023" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Dim_DonVi\Excel Source.Outputs[Excel Source Output].ExternalColumns[04-2023]"
+                          dataType="r8"
+                          name="04-2023" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Dim_DonVi\Excel Source.Outputs[Excel Source Output].ExternalColumns[05-2023]"
+                          dataType="r8"
+                          name="05-2023" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Dim_DonVi\Excel Source.Outputs[Excel Source Output].ExternalColumns[06-2023]"
+                          dataType="r8"
+                          name="06-2023" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Dim_DonVi\Excel Source.Outputs[Excel Source Output].ExternalColumns[07-2023]"
+                          dataType="r8"
+                          name="07-2023" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Dim_DonVi\Excel Source.Outputs[Excel Source Output].ExternalColumns[08-2023]"
+                          dataType="r8"
+                          name="08-2023" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Dim_DonVi\Excel Source.Outputs[Excel Source Output].ExternalColumns[09-2023]"
+                          dataType="r8"
+                          name="09-2023" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Dim_DonVi\Excel Source.Outputs[Excel Source Output].ExternalColumns[Từ trước đến nay]"
+                          dataType="r8"
+                          name="Từ trước đến nay" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Dim_DonVi\Excel Source.Outputs[Excel Source Output].ExternalColumns[Số khách hàng có đăng ký email]"
+                          dataType="r8"
+                          name="Số khách hàng có đăng ký email" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Dim_DonVi\Excel Source.Outputs[Excel Source Error Output]"
+                      isErrorOut="true"
+                      name="Excel Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Dim_DonVi\Excel Source.Outputs[Excel Source Error Output].Columns[Đơn vị]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Sequence Container\Dim_DonVi\Excel Source.Outputs[Excel Source Error Output].Columns[Đơn vị]"
+                          name="Đơn vị" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Dim_DonVi\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Dim_DonVi\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Dim_DonVi\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Dim_DonVi\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Dim_DonVi\Lookup"
+                  componentClassID="Microsoft.Lookup"
+                  contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                  description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                  name="Lookup"
+                  usesDispositions="true"
+                  version="6">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement that generates the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Dim_DonVi]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommandParam"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Dim_DonVi]) [refTable]
+where [refTable].[DonVi] = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of connection used to access the reference dataset."
+                      name="ConnectionType"
+                      typeConverter="LookupConnectionType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the cache type of the lookup table."
+                      name="CacheType"
+                      typeConverter="CacheType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                      name="NoMatchBehavior"
+                      typeConverter="LookupNoMatchBehavior">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                      name="NoMatchCachePercentage">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                      name="MaxMemoryUsage">25</property>
+                    <property
+                      dataType="System.Int64"
+                      description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                      name="MaxMemoryUsage64">25</property>
+                    <property
+                      dataType="System.String"
+                      description="Indicates whether to reference metadata in an XML format."
+                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="DonVi" dataType="DT_STR" length="10" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                      name="ParameterMap">#{Package\Sequence Container\Dim_DonVi\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of DonVi]};</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                      name="TreatDuplicateKeysAsError">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Dim_DonVi\Lookup.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[INT-TQHAI-LAPTO.BT_lan2.sa]"
+                      connectionManagerRefId="Package.ConnectionManagers[INT-TQHAI-LAPTO.BT_lan2.sa]"
+                      description="Connection manager used to access lookup data."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Dim_DonVi\Lookup.Inputs[Lookup Input]"
+                      name="Lookup Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Dim_DonVi\Lookup.Inputs[Lookup Input].Columns[Copy of DonVi]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="10"
+                          cachedName="Copy of DonVi"
+                          lineageId="Package\Sequence Container\Dim_DonVi\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of DonVi]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">DonVi</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Dim_DonVi\Lookup.Outputs[Lookup Match Output]"
+                      errorOrTruncationOperation="Lookup"
+                      exclusionGroup="1"
+                      name="Lookup Match Output"
+                      synchronousInputId="Package\Sequence Container\Dim_DonVi\Lookup.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Dim_DonVi\Lookup.Outputs[Lookup No Match Output]"
+                      description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                      exclusionGroup="1"
+                      name="Lookup No Match Output"
+                      synchronousInputId="Package\Sequence Container\Dim_DonVi\Lookup.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Dim_DonVi\Lookup.Outputs[Lookup Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Lookup Error Output"
+                      synchronousInputId="Package\Sequence Container\Dim_DonVi\Lookup.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Dim_DonVi\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Dim_DonVi\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Dim_DonVi\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Dim_DonVi\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Dim_DonVi\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[Dim_DonVi]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Dim_DonVi\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[INT-TQHAI-LAPTO.BT_lan2.sa]"
+                      connectionManagerRefId="Package.ConnectionManagers[INT-TQHAI-LAPTO.BT_lan2.sa]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Dim_DonVi\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Dim_DonVi\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of DonVi]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="10"
+                          cachedName="Copy of DonVi"
+                          externalMetadataColumnId="Package\Sequence Container\Dim_DonVi\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DonVi]"
+                          lineageId="Package\Sequence Container\Dim_DonVi\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of DonVi]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Dim_DonVi\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DonVi]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="DonVi" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Dim_DonVi\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Sequence Container\Dim_DonVi\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Dim_DonVi\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Dim_DonVi\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Dim_DonVi\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Dim_DonVi\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Sequence Container\Dim_DonVi.Paths[Aggregate Output 1]"
+                  endId="Package\Sequence Container\Dim_DonVi\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Aggregate Output 1"
+                  startId="Package\Sequence Container\Dim_DonVi\Aggregate.Outputs[Aggregate Output 1]" />
+                <path
+                  refId="Package\Sequence Container\Dim_DonVi.Paths[Data Conversion Output]"
+                  endId="Package\Sequence Container\Dim_DonVi\Lookup.Inputs[Lookup Input]"
+                  name="Data Conversion Output"
+                  startId="Package\Sequence Container\Dim_DonVi\Data Conversion.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\Sequence Container\Dim_DonVi.Paths[Excel Source Output]"
+                  endId="Package\Sequence Container\Dim_DonVi\Aggregate.Inputs[Aggregate Input 1]"
+                  name="Excel Source Output"
+                  startId="Package\Sequence Container\Dim_DonVi\Excel Source.Outputs[Excel Source Output]" />
+                <path
+                  refId="Package\Sequence Container\Dim_DonVi.Paths[Lookup No Match Output]"
+                  endId="Package\Sequence Container\Dim_DonVi\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="Lookup No Match Output"
+                  startId="Package\Sequence Container\Dim_DonVi\Lookup.Outputs[Lookup No Match Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="130.4,41.6"
+          Id="Package\Sequence Container\Dim_DonVi"
+          TopLeft="35.3428577647526,24.705882184027" />
+        <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\Sequence Container\Data Flow Task"
+          TopLeft="215.771429270871,25.6941175424929" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="409.6,140.8"
+          Size="409.6,184"
+          Id="Package\Sequence Container"
+          TopLeft="112.857143097387,50.4705881910555" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Sequence Container\Dim_DonVi">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="138.4,41.6"
+          Id="Package\Sequence Container\Dim_DonVi\Excel Source"
+          TopLeft="70.7142858648179,55.8235293628332" />
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\Sequence Container\Dim_DonVi\OLE DB Destination"
+          TopLeft="547.857144023387,282.941176222579" />
+        <NodeLayout
+          Size="112.8,41.6"
+          Id="Package\Sequence Container\Dim_DonVi\Lookup"
+          TopLeft="570.714286929187,167.4705880885" />
+        <NodeLayout
+          Size="126.4,41.6"
+          Id="Package\Sequence Container\Dim_DonVi\Aggregate"
+          TopLeft="329.285714986677,56.5882352445159" />
+        <NodeLayout
+          Size="155.2,41.6"
+          Id="Package\Sequence Container\Dim_DonVi\Data Conversion"
+          TopLeft="550.714286886612,58.8823528895638" />
+        <EdgeLayout
+          Id="Package\Sequence Container\Dim_DonVi.Paths[Aggregate Output 1]"
+          TopLeft="455.685714986677,78.5352940670398">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="95.0285718999346,0"
+              Start="0,0"
+              End="87.5285718999346,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="87.5285718999346,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\Dim_DonVi.Paths[Lookup No Match Output]"
+          TopLeft="630.085715476287,209.0705880885">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,73.8705881340799"
+              Start="0,0"
+              End="0,66.3705881340799">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,66.3705881340799" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-55.80638671875,27.3806065670399,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\Dim_DonVi.Paths[Excel Source Output]"
+          TopLeft="209.114285864818,77.0058823036746">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="120.171429121859,0"
+              Start="0,0"
+              End="112.671429121859,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="112.671429121859,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\Dim_DonVi.Paths[Data Conversion Output]"
+          TopLeft="627.714286907899,100.482352889564">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,66.9882351989358"
+              Start="0,0"
+              End="0,59.4882351989358">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,59.4882351989358" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Dim_DonVi\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Dim_DonVi]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Dim_DonVi\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Dim_DonVi\Excel Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Sequence Container\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="138.4,41.6"
+          Id="Package\Sequence Container\Data Flow Task\Excel Source"
+          TopLeft="110.999998345971,42.9999993592501" />
+        <NodeLayout
+          Size="114.4,41.6"
+          Id="Package\Sequence Container\Data Flow Task\Unpivot"
+          TopLeft="357.999994665384,38.9999994188547" />
+        <EdgeLayout
+          Id="Package\Sequence Container\Data Flow Task.Paths[Excel Source Output]"
+          TopLeft="249.399998345971,61.7999993890524">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="108.599996319413,0"
+              Start="0,0"
+              End="101.099996319413,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="101.099996319413,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="155.2,41.6"
+          Id="Package\Sequence Container\Data Flow Task\Data Conversion"
+          TopLeft="603.999990999699,38.9999994188547" />
+        <EdgeLayout
+          Id="Package\Sequence Container\Data Flow Task.Paths[Unpivot Output]"
+          TopLeft="472.399994665384,59.7999994188547">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="131.599996334314,0"
+              Start="0,0"
+              End="124.099996334314,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="124.099996334314,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="126.4,48.8"
+          Id="Package\Sequence Container\Data Flow Task\Aggregate"
+          TopLeft="852.99998728931,30.999999538064" />
+        <EdgeLayout
+          Id="Package\Sequence Container\Data Flow Task.Paths[Data Conversion Output]"
+          TopLeft="759.199990999699,57.5999994784594">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="93.7999962896108,0"
+              Start="0,0"
+              End="86.2999962896108,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="86.2999962896108,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\Sequence Container\Data Flow Task\Derived Column"
+          TopLeft="838.999987497926,132.999998018146" />
+        <EdgeLayout
+          Id="Package\Sequence Container\Data Flow Task.Paths[Aggregate Output 1]"
+          TopLeft="915.799987393618,79.799999538064">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,53.1999984800816"
+              Start="0,0"
+              End="0,45.6999984800816">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45.6999984800816" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="97.6,41.6"
+          Id="Package\Sequence Container\Data Flow Task\Sort"
+          TopLeft="861.999987155199,224.999996647239" />
+        <EdgeLayout
+          Id="Package\Sequence Container\Data Flow Task.Paths[Derived Column Output]"
+          TopLeft="913.099987326562,174.599998018146">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,50.3999986290932"
+              Start="0,0"
+              End="0,42.8999986290932">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.8999986290932" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="112.8,41.6"
+          Id="Package\Sequence Container\Data Flow Task\Lookup"
+          TopLeft="646.999990358949,219.999996721745" />
+        <EdgeLayout
+          Id="Package\Sequence Container\Data Flow Task.Paths[Sort Output]"
+          TopLeft="861.999987155199,243.299996684492">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-102.19999679625,0"
+              Start="0,0"
+              End="-94.6999967962502,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-94.6999967962502,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\Sequence Container\Data Flow Task\OLE DB Destination"
+          TopLeft="392.999994143844,217.999996751547" />
+        <EdgeLayout
+          Id="Package\Sequence Container\Data Flow Task.Paths[Lookup No Match Output]"
+          TopLeft="646.999990358949,239.799996736646">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-83.5999962151051,0"
+              Start="0,0"
+              End="-76.0999962151051,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-76.0999962151051,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-93.8563848263025,5,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Data Flow Task\Excel Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Data Flow Task\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Dim_ThoiGian]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Data Flow Task\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

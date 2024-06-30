@@ -1,0 +1,110 @@
+﻿<DataSourceView xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="e43e9ab6-c876-4afb-bfa0-e701b690dcbb" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>BT Lan2</ID>
+  <Name>BT Lan2</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:CurrentLayout</Name>
+      <Value>_ALL_TABLES_</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:SchemaRestriction</Name>
+      <Value></Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:RetrieveRelationships</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:Layouts</Name>
+      <Value>
+        <Layouts xmlns="">
+          <Diagram>
+            <Name>_ALL_TABLES_</Name>
+            <DiagramLayout />
+            <ShowRelationshipNames>False</ShowRelationshipNames>
+            <UseDiagramDefaultLayout>True</UseDiagramDefaultLayout>
+            <DiagramViewPortLeft>0</DiagramViewPortLeft>
+            <DiagramViewPortTop>0</DiagramViewPortTop>
+            <DiagramBoundingLeft>0</DiagramBoundingLeft>
+            <DiagramBoundingTop>0</DiagramBoundingTop>
+            <DiagramZoom>100</DiagramZoom>
+          </Diagram>
+        </Layouts>
+      </Value>
+    </Annotation>
+  </Annotations>
+  <DataSourceID>BT_Lan2</DataSourceID>
+  <Schema>
+    <xs:schema id="BT_x0020_Lan2" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+      <xs:element name="BT_x0020_Lan2" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:design-time-name="6a23c70d-5438-4a2f-806b-26485350c4b3">
+        <xs:complexType>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="dbo_Dim_DonVi" msprop:DbTableName="Dim_DonVi" msprop:FriendlyName="Dim_DonVi" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:design-time-name="5ceaddc3-a167-4e2f-9a15-b9b5beb3ffb5">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="Donvi" msprop:FriendlyName="Donvi" msprop:DbColumnName="Donvi" msprop:design-time-name="bc4ce3c3-3061-4ff4-aad0-5f0ddfdd0baf">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="255" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_Dim_Thoigian" msprop:DbTableName="Dim_Thoigian" msprop:FriendlyName="Dim_Thoigian" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:design-time-name="15fa68ff-f220-46f0-9c32-54648f75cdab">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="Thoigian" msprop:FriendlyName="Thoigian" msprop:DbColumnName="Thoigian" msprop:design-time-name="860c3609-fbc3-4012-aa12-27c2214aa3a7" type="xs:dateTime" />
+                  <xs:element name="Thang" msprop:FriendlyName="Thang" msprop:DbColumnName="Thang" msprop:design-time-name="a4006e6f-b941-44da-b9df-8b526aedc1e1" type="xs:int" minOccurs="0" />
+                  <xs:element name="Nam" msprop:FriendlyName="Nam" msprop:DbColumnName="Nam" msprop:design-time-name="e78684d1-700b-456f-8606-145f7613b0c8" type="xs:int" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_Fact_Table" msprop:DbTableName="Fact_Table" msprop:FriendlyName="Fact_Table" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:design-time-name="ad520302-7592-4e0f-8c8d-34cfe9b00a96">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="Donvi" msprop:FriendlyName="Donvi" msprop:DbColumnName="Donvi" msprop:design-time-name="5e926509-ddd4-467b-bf40-f1f965d932df" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="255" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Thoigian" msprop:FriendlyName="Thoigian" msprop:DbColumnName="Thoigian" msprop:design-time-name="404afa7f-d9cf-4e85-89cd-509c8aa692b7" type="xs:dateTime" minOccurs="0" />
+                  <xs:element name="ZALO" msprop:FriendlyName="ZALO" msprop:DbColumnName="ZALO" msprop:design-time-name="96834004-840c-4fa4-a669-326836db23f1" type="xs:double" minOccurs="0" />
+                  <xs:element name="EMAIL" msprop:FriendlyName="EMAIL" msprop:DbColumnName="EMAIL" msprop:design-time-name="a18e2f29-d6d3-41cc-bfe2-fd4ef8f476a8" type="xs:double" minOccurs="0" />
+                  <xs:element name="APP" msprop:FriendlyName="APP" msprop:DbColumnName="APP" msprop:design-time-name="7c8f2dc1-7028-4a8c-a509-403cf868080e" type="xs:double" minOccurs="0" />
+                  <xs:element name="WEB" msprop:FriendlyName="WEB" msprop:DbColumnName="WEB" msprop:design-time-name="c5d924de-078d-4f88-a1fb-f22e5293ece7" type="xs:double" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:choice>
+        </xs:complexType>
+        <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_Dim_DonVi" />
+          <xs:field xpath="Donvi" />
+        </xs:unique>
+        <xs:unique name="dbo_Dim_Thoigian_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_Dim_Thoigian" />
+          <xs:field xpath="Thoigian" />
+        </xs:unique>
+        <xs:keyref name="FK_Fact_Donvi" refer="Constraint1">
+          <xs:selector xpath=".//dbo_Fact_Table" />
+          <xs:field xpath="Donvi" />
+        </xs:keyref>
+        <xs:keyref name="FK_Fact_Thoigian" refer="dbo_Dim_Thoigian_Constraint1">
+          <xs:selector xpath=".//dbo_Fact_Table" />
+          <xs:field xpath="Thoigian" />
+        </xs:keyref>
+      </xs:element>
+    </xs:schema>
+    <BT_x0020_Lan2 xmlns="" />
+  </Schema>
+</DataSourceView>

@@ -1,0 +1,48 @@
+﻿/*** 1. Total Profit by Product ***/
+select [Measures].[Profit] on columns,
+	NONEMPTY ([Dim Product].[Product Type].[Product Type]) on rows
+from [CK TH DW];
+
+/*** 2. Total Sales by years ***/
+select [Measures].[Sales] on columns,
+	NONEMPTY ([Dim- Time].[Year].[Year]) on rows
+from [CK TH DW];
+
+/*** 3. Total COGS by Product and Month ***/
+select NONEMPTY ([Dim- Time].[Month].[Month]) on columns,
+	NONEMPTY ([Dim Product].[Product].[Product]) on rows
+from [CK TH DW]
+where [Measures].[COGS];
+
+/*** 4. Total Sales by State and Quarter ***/
+select NONEMPTY ([Dim- Time].[Quarter].[Quarter]) on columns,
+	NONEMPTY ([Dim Market].[State].[State]) on rows
+from [CK TH DW]
+where [Measures].[Sales];
+
+/*** 5. Total Inventory and Margin by Product ***/
+select {[Measures].[Inventory],[Margin]} on columns,
+	NONEMPTY ([Dim Product].[Product].[Product]) on rows
+from [CK TH DW];
+
+/*** 6. Total Sales by Years of New York ***/
+select {[Measures].[Sales],[Marketing]} on columns,
+	NONEMPTY ([Dim- Time].[Year].[Year]) on rows
+from [CK TH DW]
+where [Dim Market].[State].[New York];
+/***1. Top 3 sp có lợi nhuận nhiều nhất trong 1/2011 ***/
+select {[Measures].[Profit]} on columns,
+Topcount ([Dim Product].[Product].children, 3,[Measures].[Profit]) on rows
+from[CK TH DW]
+go
+
+/***2. Top 3 khu vực có doanh thu bán hàng cao nhất ***/
+select {[Measures].[Sales]} on columns,
+Topcount ([Dim Market].[Market].children, 3,[Measures].[Sales]) on rows
+from[CK TH DW]
+
+/***2. Top 5 ngày của tháng 1 năm 2011 có lợi nhuận nhiều nhất ***/
+select nonempty ([Dim Product].[Product].children) on columns,
+	Topcount([Dim- Time].[Day].children,5,[Measures].[Profit]) on rows
+from [CK TH DW]
+where [Dim- Time].[Year].&[2011] 

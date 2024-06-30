@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="INT-TQHAI-LAPTO.Staging_DW_Bai3.sa"
+  DTS:DTSID="{CCB44C9C-A89B-41B6-B148-2421D85844F7}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=INT-TQHAI-LAPTO;User ID=sa;Initial Catalog=Staging_DW_Bai3;Provider=SQLNCLI11.1;Persist Security Info=True;Application Name=SSIS-ETL_Bai3-{CCB44C9C-A89B-41B6-B148-2421D85844F7}INT-TQHAI-LAPTO.Staging_DW_Bai3.sa;Auto Translate=False;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAMfdOoN2ZzEampDIxsx9aFwAAAAACAAAAAAAQZgAAAAEAACAAAACi0adIljKstGQfjIV33LVq+op3u+ogxFgdMQpZR5tj/QAAAAAOgAAAAAIAACAAAADBZ/L1v2Tc14FFNlIt42BFArComAIBE+HgiwGAB+sh/4AAAAA4nCTTC5A2SfQID4Lo7wZmEgOji8wMFLKhWqeWk/mRUrjkXCY5g4+WHgzbePoPRDk6xc8wKcPD7gzQlaS0Yd/A1Dnp/MXGsUJPjDnq3R+p1uMQLTy8igw+qbtrFkWWDhBVWyZOp26B+cn9Pb/5ofRU8gNTe5mTUSdkH39sp7tl80AAAADPvlikX10dyvs/SK+x1fK7uTSv6SyHt7UJEzf7kVwksqqPNipFECH+446npda9/nWUUtp3hJaEszJrxPeXwU4l</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
